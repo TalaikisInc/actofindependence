@@ -34,4 +34,4 @@ static/admin
 stats.txt
 .env
 build/
-app/
+app/build/
