@@ -1,4 +1,4 @@
-# Act of Independence of Lithuania
+# Act of Reinstating Independence of Lithuania
 ## on Ethereum Blockchain
 
 * See it [on our dapp](https://act.powerpiper.com)
