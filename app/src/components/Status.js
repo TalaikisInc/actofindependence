@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const Status = (props) => {
-  if (!props.initiated || window.location.pathname === '/') { return null }
-
   return (
     <div>
       { !props.web3

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import web3utils from 'web3-utils'
 
 import Toast from 'grommet/components/Toast'
 import Box from 'grommet/components/Box'
+import Label from 'grommet/components/Label'
+import Image from 'grommet/components/Image'
 
 class Home extends Component {
   constructor(props) {
@@ -11,31 +14,107 @@ class Home extends Component {
     this.state = {
       success: '',
       failure: '',
-      modalOpen: false
+      modalOpen: false,
+      data: '',
+      network: ''
     }
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.getAct = this.getAct.bind(this)
+    this.getNetwork = this.getNetwork.bind(this)
   }
 
-  handleChange(event) {
-    
+  componentDidMount() {
+    this.getAct()
+    this.getNetwork()
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
+  getNetwork() {
+    this.props.web3.web3.version.getNetwork(async (net) => {
+      let network
+      switch (net) {
+        case '1':
+          network = 'MainNet'
+          break
+        case '2':
+          network = 'Morden (deprecated)'
+          break
+        case '3':
+          network = 'Ropsten Test Network'
+          break
+        case '4':
+          network = 'Rinkeby Test Network'
+          break
+        case '42':
+          network = 'Kovan Test Network'
+          break
+        default:
+          network = 'Local network'
+      }
 
-    this.setState({
-      success: '',
-      failure: ''
+      this.setState({
+        network: network
+      })
     })
+
+    setTimeout(() => {
+      this.getNetwork()
+    }, 2000)
+  }
+
+  getAct() {
+    this.props.Token.deployed().then(async (token) => {
+      if(web3utils.isAddress(this.props.account)) {
+          token.getAct({ from: this.props.account })
+            .then(async (res) => {
+              this.props.ipfs.catJSON(res, async (err, data) => {
+                if(err) {
+                  // console.log(err)
+                  this.setState({
+                    modalOpen: true,
+                    failure: `Error occured: ${err.message}`
+                  })
+                } else {
+                  this.setState({
+                    data: data
+                  })
+                }
+              })
+            })
+            .catch((error) => {
+              // console.log(error.message)
+              this.setState({
+                modalOpen: true,
+                failure: `Error occured: ${error.message}`
+              })
+            })
+        } else {
+          this.setState({
+            modalOpen: true,
+            failure: 'Wrong account.'
+          })
+        }
+      })
+
+    setTimeout(() => {
+      this.getAct()
+    }, 5000)
   }
 
   render() {
     return (
-      <Box>
-        <Box>
-
+      <Box align="center">
+        <Box align="center">
+          { this.state.data === '' ?
+            <div>
+              <Box align="center">
+                <Label align="center">Loading...</Label>
+              </Box>
+              <Box align="center">
+                <Label align="center">NOTE. Your Metamask should point to Main Network in order to load The Act</Label>
+              </Box>
+            </div>
+            : <Image src={this.state.data} size='large' />
+          }
         </Box>
           { this.state.modalOpen && <Toast
             status={this.state.success ? 'ok' : 'critical' }>
@@ -52,7 +131,8 @@ function mapStateToProps(state) {
   return {
     Token: state.Token,
     account: state.account,
-    web3: state.web3
+    web3: state.web3,
+    ipfs: state.ipfs
   }
 }
 

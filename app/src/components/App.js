@@ -11,7 +11,6 @@ import Header from '../containers/Header'
 import Footer from '../containers/Footer'
 import Status from './Status'
 import Home from './Home'
-import Donate from './Donate'
 
 class _App extends Component {
   constructor(props) {
@@ -81,11 +80,10 @@ class _App extends Component {
                 <Box align='center' responsive={true} pad='medium'>
                   <Header />
                 </Box>
-                <Route exact path='/home' component={Home} />
 
                 { this.state.deployed && typeof this.props.account === 'string' && this.props.account !== 'empty'
                   ? <div>
-                      <Route exact path='/donate' component={Donate} />
+                      <Route exact path='/home' component={Home} />
                     </div>
                   : null
                 }
@@ -102,6 +100,7 @@ class _App extends Component {
 function mapStateToProps(state) {
   return {
     web3: state.web3,
+    ipfs: state.ipfs,
     account: state.account
   }
 }

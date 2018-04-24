@@ -1,6 +1,16 @@
 require('babel-register')
 require('babel-polyfill')
-const HDWalletProvider = require('truffle-hdwallet-provider')
+const HDWalletProvider = require('truffle-hdwallet-provider-privkey')
+const assert = require('assert')
+const prod = process.env.ENV === 'production'
+const envLoc = prod ? './.env' : './.env' // should be changed
+require('dotenv').config({ path: envLoc })
+const Web3 = require('web3')
+const web3 = new Web3()
+
+assert.equal(typeof process.env.PRIVATE_KEY, 'string', 'We need private key')
+assert.equal(typeof process.env.INFURA_API_KEY, 'string', 'We need Infura API key')
+assert.equal(typeof process.env.OWNER, 'string', 'We need owner address')
 
 const config = {
   networks: {
@@ -9,12 +19,28 @@ const config = {
       port: 8545,
       network_id: 336
     },
-    main: {
+    rinkeby: {
       host: 'localhost',
       port: 8545,
-      network_id: '1',
-      from: '0xe37b36b9705ebcc53d242b62b1a2fab971dcea02',
+      network_id: '4',
+      from: process.env.OWNER,
       gas: 6712390
+    },
+    ropsten: {
+      host: 'localhost',
+      port: 8545,
+      network_id: '3',
+      from: process.env.OWNER,
+      gas: 6712390
+    },
+    main: {
+      provider: function() {
+        return new HDWalletProvider(process.env.PRIVATE_KEY, `https://mainnet.infura.io/${process.env.INFURA_API_KEY}`)
+      },
+      network_id: '1',
+      from: process.env.OWNER,
+      gas: 6712390,
+      gasPrice: web3.toWei(4, 'gwei')
     },
     coverage: {
       host: 'localhost',
