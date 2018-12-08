@@ -10,8 +10,8 @@ APP_NAME=$(read_var APP_NAME /root/.scripts/.env)
 PORT=$(read_var PROD_PORT /root/.scripts/.env)
 
 echo "Triger received. Deploying..."
-cd /opt/nakamoto
-git --git-dir=/opt/nakamoto.git --work-tree=/opt/nakamoto checkout master -f
+cd /opt/act
+git --git-dir=/opt/act.git --work-tree=/opt/act checkout master -f
 
 echo 'Installing'
 cd app
