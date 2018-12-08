@@ -1,0 +1,292 @@
+{
+  "contractName": "ICOState",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "icoState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60606040526000805460ff19169055341561001957600080fd5b60ab806100276000396000f300606060405260043610603e5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166344f3875681146043575b600080fd5b3415604d57600080fd5b60536076565b60405180826003811115606257fe5b60ff16815260200191505060405180910390f35b60005460ff16815600a165627a7a723058206caaf7ad7d57806788e0d062e5d078b4b1f14cbf69b4ac7abf40a796bc051f8a0029",
+  "deployedBytecode": "0x606060405260043610603e5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166344f3875681146043575b600080fd5b3415604d57600080fd5b60536076565b60405180826003811115606257fe5b60ff16815260200191505060405180910390f35b60005460ff16815600a165627a7a723058206caaf7ad7d57806788e0d062e5d078b4b1f14cbf69b4ac7abf40a796bc051f8a0029",
+  "sourceMap": "28:168:6:-;;;177:13;153:37;;-1:-1:-1;;153:37:6;;;28:168;;;;;;;;;;;;;;",
+  "deployedSourceMap": "28:168:6:-;;;;;;;;;;;;;;;;;;;;;;;153:37;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.21;\r\n\r\ncontract ICOState {\r\n\r\n    enum State {\r\n        Created,\r\n        Running,\r\n        Paused,\r\n        Finished\r\n    }\r\n\r\n    State public icoState = State.Created;\r\n\r\n}\r\n",
+  "sourcePath": "C:\\Users\\DXenu\\Desktop\\box\\demo_contract\\contracts\\templates\\ICOState.sol",
+  "ast": {
+    "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/ICOState.sol",
+    "exportedSymbols": {
+      "ICOState": [
+        988
+      ]
+    },
+    "id": 989,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 978,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 988,
+        "linearizedBaseContracts": [
+          988
+        ],
+        "name": "ICOState",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ICOState.State",
+            "id": 983,
+            "members": [
+              {
+                "id": 979,
+                "name": "Created",
+                "nodeType": "EnumValue",
+                "src": "77:7:6"
+              },
+              {
+                "id": 980,
+                "name": "Running",
+                "nodeType": "EnumValue",
+                "src": "95:7:6"
+              },
+              {
+                "id": 981,
+                "name": "Paused",
+                "nodeType": "EnumValue",
+                "src": "113:6:6"
+              },
+              {
+                "id": 982,
+                "name": "Finished",
+                "nodeType": "EnumValue",
+                "src": "130:8:6"
+              }
+            ],
+            "name": "State",
+            "nodeType": "EnumDefinition",
+            "src": "55:90:6"
+          },
+          {
+            "constant": false,
+            "id": 987,
+            "name": "icoState",
+            "nodeType": "VariableDeclaration",
+            "scope": 988,
+            "src": "153:37:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_State_$983",
+              "typeString": "enum ICOState.State"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 984,
+              "name": "State",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 983,
+              "src": "153:5:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_State_$983",
+                "typeString": "enum ICOState.State"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "expression": {
+                "argumentTypes": null,
+                "id": 985,
+                "name": "State",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 983,
+                "src": "177:5:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                  "typeString": "type(enum ICOState.State)"
+                }
+              },
+              "id": 986,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "lValueRequested": false,
+              "memberName": "Created",
+              "nodeType": "MemberAccess",
+              "referencedDeclaration": null,
+              "src": "177:13:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_State_$983",
+                "typeString": "enum ICOState.State"
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 989,
+        "src": "28:168:6"
+      }
+    ],
+    "src": "0:198:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/ICOState.sol",
+    "exportedSymbols": {
+      "ICOState": [
+        988
+      ]
+    },
+    "id": 989,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 978,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 988,
+        "linearizedBaseContracts": [
+          988
+        ],
+        "name": "ICOState",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ICOState.State",
+            "id": 983,
+            "members": [
+              {
+                "id": 979,
+                "name": "Created",
+                "nodeType": "EnumValue",
+                "src": "77:7:6"
+              },
+              {
+                "id": 980,
+                "name": "Running",
+                "nodeType": "EnumValue",
+                "src": "95:7:6"
+              },
+              {
+                "id": 981,
+                "name": "Paused",
+                "nodeType": "EnumValue",
+                "src": "113:6:6"
+              },
+              {
+                "id": 982,
+                "name": "Finished",
+                "nodeType": "EnumValue",
+                "src": "130:8:6"
+              }
+            ],
+            "name": "State",
+            "nodeType": "EnumDefinition",
+            "src": "55:90:6"
+          },
+          {
+            "constant": false,
+            "id": 987,
+            "name": "icoState",
+            "nodeType": "VariableDeclaration",
+            "scope": 988,
+            "src": "153:37:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_State_$983",
+              "typeString": "enum ICOState.State"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 984,
+              "name": "State",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 983,
+              "src": "153:5:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_State_$983",
+                "typeString": "enum ICOState.State"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "expression": {
+                "argumentTypes": null,
+                "id": 985,
+                "name": "State",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 983,
+                "src": "177:5:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                  "typeString": "type(enum ICOState.State)"
+                }
+              },
+              "id": 986,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "lValueRequested": false,
+              "memberName": "Created",
+              "nodeType": "MemberAccess",
+              "referencedDeclaration": null,
+              "src": "177:13:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_State_$983",
+                "typeString": "enum ICOState.State"
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 989,
+        "src": "28:168:6"
+      }
+    ],
+    "src": "0:198:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-21T04:13:53.914Z"
+}

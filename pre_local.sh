@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git remote -v
-git remote add production ssh://root@123.123.123.123/opt/nakamoto.git
+git remote add production ssh://root@123.123.123.123/opt/act.git

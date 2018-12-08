@@ -1,0 +1,2302 @@
+{
+  "contractName": "ICOManagement",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bot",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "icoState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "validate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_bot",
+          "type": "address"
+        }
+      ],
+      "name": "setBot",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "RunIco",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "PauseIco",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "FinishIco",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "startIco",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "pauseIco",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "finishIco",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60606040526001805460a060020a60ff021916905560008054600160a060020a03191633600160a060020a03161781556104f390819061003f90396000f3006060604052600436106100985763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166310814c37811461009d57806344f38756146100cc5780636901f668146101035780636b5caec41461012a57806389311e6f1461014b5780638da5cb5b1461015e578063c4fdc6b814610171578063ec42f82f14610184578063f2fde38b14610197575b600080fd5b34156100a857600080fd5b6100b06101b6565b604051600160a060020a03909116815260200160405180910390f35b34156100d757600080fd5b6100df6101c5565b604051808260038111156100ef57fe5b60ff16815260200191505060405180910390f35b341561010e57600080fd5b6101166101d5565b604051901515815260200160405180910390f35b341561013557600080fd5b610149600160a060020a03600435166101ea565b005b341561015657600080fd5b610149610234565b341561016957600080fd5b6100b06102ef565b341561017c57600080fd5b6101496102fe565b341561018f57600080fd5b61014961039f565b34156101a257600080fd5b610149600160a060020a036004351661042c565b600154600160a060020a031681565b60015460a060020a900460ff1681565b60005433600160a060020a0390811691161490565b60005433600160a060020a0390811691161461020557600080fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b60005433600160a060020a0390811691161461024f57600080fd5b600060015460a060020a900460ff16600381111561026957fe5b148061028c5750600260015460a060020a900460ff16600381111561028a57fe5b145b151561029757600080fd5b60018054819074ff0000000000000000000000000000000000000000191660a060020a825b02179055507fd180ebcaa21eb03f90675218d2d628708ce938a4360f69ee8e74711cee01a99160405160405180910390a1565b600054600160a060020a031681565b60005433600160a060020a0390811691161461031957600080fd5b6001805460a060020a900460ff16600381111561033257fe5b1461033c57600080fd5b6001805474ff00000000000000000000000000000000000000001916740200000000000000000000000000000000000000001790557f8bb4b9f09f7571abfa7c9f11ae39a25d6b4c6f0798a3fe2c7c7d708f4edefebb60405160405180910390a1565b60005433600160a060020a039081169116146103ba57600080fd5b6001805460a060020a900460ff1660038111156103d357fe5b14806103f65750600260015460a060020a900460ff1660038111156103f457fe5b145b151561040157600080fd5b600180546003919074ff0000000000000000000000000000000000000000191660a060020a836102bc565b60005433600160a060020a0390811691161461044757600080fd5b600160a060020a038116151561045c57600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a72305820ee36286353abf84d243e11c7a47dbffdfc1a120e753ec66ad7fa286b291c804d0029",
+  "deployedBytecode": "0x6060604052600436106100985763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166310814c37811461009d57806344f38756146100cc5780636901f668146101035780636b5caec41461012a57806389311e6f1461014b5780638da5cb5b1461015e578063c4fdc6b814610171578063ec42f82f14610184578063f2fde38b14610197575b600080fd5b34156100a857600080fd5b6100b06101b6565b604051600160a060020a03909116815260200160405180910390f35b34156100d757600080fd5b6100df6101c5565b604051808260038111156100ef57fe5b60ff16815260200191505060405180910390f35b341561010e57600080fd5b6101166101d5565b604051901515815260200160405180910390f35b341561013557600080fd5b610149600160a060020a03600435166101ea565b005b341561015657600080fd5b610149610234565b341561016957600080fd5b6100b06102ef565b341561017c57600080fd5b6101496102fe565b341561018f57600080fd5b61014961039f565b34156101a257600080fd5b610149600160a060020a036004351661042c565b600154600160a060020a031681565b60015460a060020a900460ff1681565b60005433600160a060020a0390811691161490565b60005433600160a060020a0390811691161461020557600080fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b60005433600160a060020a0390811691161461024f57600080fd5b600060015460a060020a900460ff16600381111561026957fe5b148061028c5750600260015460a060020a900460ff16600381111561028a57fe5b145b151561029757600080fd5b60018054819074ff0000000000000000000000000000000000000000191660a060020a825b02179055507fd180ebcaa21eb03f90675218d2d628708ce938a4360f69ee8e74711cee01a99160405160405180910390a1565b600054600160a060020a031681565b60005433600160a060020a0390811691161461031957600080fd5b6001805460a060020a900460ff16600381111561033257fe5b1461033c57600080fd5b6001805474ff00000000000000000000000000000000000000001916740200000000000000000000000000000000000000001790557f8bb4b9f09f7571abfa7c9f11ae39a25d6b4c6f0798a3fe2c7c7d708f4edefebb60405160405180910390a1565b60005433600160a060020a039081169116146103ba57600080fd5b6001805460a060020a900460ff1660038111156103d357fe5b14806103f65750600260015460a060020a900460ff1660038111156103f457fe5b145b151561040157600080fd5b600180546003919074ff0000000000000000000000000000000000000000191660a060020a836102bc565b60005433600160a060020a0390811691161461044757600080fd5b600160a060020a038116151561045c57600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a72305820ee36286353abf84d243e11c7a47dbffdfc1a120e753ec66ad7fa286b291c804d0029",
+  "sourceMap": "83:689:5:-;;;153:37:6;;;-1:-1:-1;;;;;;153:37:6;;;177:13;239:18:8;;-1:-1:-1;;;;;;239:18:8;247:10;-1:-1:-1;;;;;239:18:8;;;;83:689:5;;;;;;;;",
+  "deployedSourceMap": "83:689:5:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:18:8;;;;;;;;;;;;;;;-1:-1:-1;;;;;83:18:8;;;;;;;;;;;;;;153:37:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;771:94:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;685:78;;;;;;;;;;-1:-1:-1;;;;;685:78:8;;;;;;;206:182:5;;;;;;;;;;;;56:20:8;;;;;;;;;;;;396:152:5;;;;;;;;;;;;556:211;;;;;;;;;;;;873:192:8;;;;;;;;;;-1:-1:-1;;;;;873:192:8;;;;;83:18;;;-1:-1:-1;;;;;83:18:8;;:::o;153:37:6:-;;;-1:-1:-1;;;153:37:6;;;;;:::o;771:94:8:-;812:4;851:5;837:10;-1:-1:-1;;;;;837:19:8;;;851:5;;837:19;771:94;:::o;685:78::-;327:5;;313:10;-1:-1:-1;;;;;313:19:8;;;327:5;;313:19;305:28;;;;;;745:3;:10;;-1:-1:-1;;745:10:8;-1:-1:-1;;;;;745:10:8;;;;;;;;;;685:78::o;206:182:5:-;327:5:8;;313:10;-1:-1:-1;;;;;313:19:8;;;327:5;;313:19;305:28;;;;;;276:13:5;264:8;;-1:-1:-1;;;264:8:5;;;;:25;;;;;;;;;:53;;;-1:-1:-1;305:12:5;293:8;;-1:-1:-1;;;293:8:5;;;;:24;;;;;;;;;264:53;256:62;;;;;;;;340:13;329:24;;340:13;;-1:-1:-1;;329:24:5;-1:-1:-1;;;340:13:5;329:24;;;;;;369:11;;;;;;;;;;206:182::o;56:20:8:-;;;-1:-1:-1;;;;;56:20:8;;:::o;396:152:5:-;327:5:8;;313:10;-1:-1:-1;;;;;313:19:8;;;327:5;;313:19;305:28;;;;;;466:13:5;454:8;;-1:-1:-1;;;454:8:5;;;;:25;;;;;;;;;446:34;;;;;;491:8;:23;;-1:-1:-1;;491:23:5;;;;;530:10;;;;;;;;;;396:152::o;556:211::-;327:5:8;;313:10;-1:-1:-1;;;;;313:19:8;;;327:5;;313:19;305:28;;;;;;627:13:5;615:8;;-1:-1:-1;;;615:8:5;;;;:25;;;;;;;;;:53;;;-1:-1:-1;656:12:5;644:8;;-1:-1:-1;;;644:8:5;;;;:24;;;;;;;;;615:53;607:62;;;;;;;;707:8;:25;;718:14;;707:8;-1:-1:-1;;707:25:5;-1:-1:-1;;;718:14:5;707:25;;873:192:8;327:5;;313:10;-1:-1:-1;;;;;313:19:8;;;327:5;;313:19;305:28;;;;;;-1:-1:-1;;;;;954:22:8;;;;946:31;;;;;;1014:5;;-1:-1:-1;;;;;993:37:8;;;;1014:5;993:37;;;;;;;;;;1041:5;:16;;-1:-1:-1;;1041:16:8;-1:-1:-1;;;;;1041:16:8;;;;;;;;;;873:192::o",
+  "source": "pragma solidity ^0.4.21;\r\n\r\nimport \"./Ownable.sol\";\r\nimport \"./ICOState.sol\";\r\n\r\n\r\ncontract ICOManagement is Ownable, ICOState {\r\n\r\n    event RunIco();\r\n    event PauseIco();\r\n    event FinishIco();\r\n\r\n    function startIco() external onlyOwner {\r\n        require(icoState == State.Created || icoState == State.Paused);\r\n        icoState = State.Running;\r\n        emit FinishIco();\r\n    }\r\n\r\n    function pauseIco() external onlyOwner {\r\n        require(icoState == State.Running);\r\n        icoState = State.Paused;\r\n        emit PauseIco();\r\n    }\r\n\r\n    function finishIco() external onlyOwner {\r\n        require(icoState == State.Running || icoState == State.Paused);\r\n\r\n        // defrost();\r\n\r\n        icoState = State.Finished;\r\n        emit FinishIco();\r\n    }\r\n\r\n}\r\n",
+  "sourcePath": "C:\\Users\\DXenu\\Desktop\\box\\demo_contract\\contracts\\templates\\ICOManagement.sol",
+  "ast": {
+    "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/ICOManagement.sol",
+    "exportedSymbols": {
+      "ICOManagement": [
+        976
+      ]
+    },
+    "id": 977,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 890,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 891,
+        "nodeType": "ImportDirective",
+        "scope": 977,
+        "sourceUnit": 1142,
+        "src": "28:23:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/ICOState.sol",
+        "file": "./ICOState.sol",
+        "id": 892,
+        "nodeType": "ImportDirective",
+        "scope": 977,
+        "sourceUnit": 989,
+        "src": "53:24:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 893,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1141,
+              "src": "109:7:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$1141",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 894,
+            "nodeType": "InheritanceSpecifier",
+            "src": "109:7:5"
+          },
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 895,
+              "name": "ICOState",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 988,
+              "src": "118:8:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ICOState_$988",
+                "typeString": "contract ICOState"
+              }
+            },
+            "id": 896,
+            "nodeType": "InheritanceSpecifier",
+            "src": "118:8:5"
+          }
+        ],
+        "contractDependencies": [
+          988,
+          1141
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 976,
+        "linearizedBaseContracts": [
+          976,
+          988,
+          1141
+        ],
+        "name": "ICOManagement",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 898,
+            "name": "RunIco",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 897,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "148:2:5"
+            },
+            "src": "136:15:5"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 900,
+            "name": "PauseIco",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 899,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "171:2:5"
+            },
+            "src": "157:17:5"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 902,
+            "name": "FinishIco",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 901,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "195:2:5"
+            },
+            "src": "180:18:5"
+          },
+          {
+            "body": {
+              "id": 927,
+              "nodeType": "Block",
+              "src": "245:143:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 916,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 911,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 908,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "264:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 909,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "276:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 910,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Created",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "276:13:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "264:25:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "||",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 915,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 912,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "293:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 913,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "305:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 914,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Paused",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "305:12:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "293:24:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "264:53:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 907,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1261,
+                      "src": "256:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 917,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "256:62:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 918,
+                  "nodeType": "ExpressionStatement",
+                  "src": "256:62:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 922,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 919,
+                      "name": "icoState",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 987,
+                      "src": "329:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 920,
+                        "name": "State",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 983,
+                        "src": "340:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                          "typeString": "type(enum ICOState.State)"
+                        }
+                      },
+                      "id": 921,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Running",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "340:13:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "src": "329:24:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_State_$983",
+                      "typeString": "enum ICOState.State"
+                    }
+                  },
+                  "id": 923,
+                  "nodeType": "ExpressionStatement",
+                  "src": "329:24:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 924,
+                      "name": "FinishIco",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 902,
+                      "src": "369:9:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 925,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "369:11:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 926,
+                  "nodeType": "EmitStatement",
+                  "src": "364:16:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 928,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 905,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 904,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1049,
+                  "src": "235:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "235:9:5"
+              }
+            ],
+            "name": "startIco",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 903,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "223:2:5"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 906,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "245:0:5"
+            },
+            "scope": 976,
+            "src": "206:182:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 948,
+              "nodeType": "Block",
+              "src": "435:113:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_enum$_State_$983",
+                          "typeString": "enum ICOState.State"
+                        },
+                        "id": 937,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 934,
+                          "name": "icoState",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 987,
+                          "src": "454:8:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 935,
+                            "name": "State",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 983,
+                            "src": "466:5:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                              "typeString": "type(enum ICOState.State)"
+                            }
+                          },
+                          "id": 936,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "Running",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "466:13:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          }
+                        },
+                        "src": "454:25:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 933,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1261,
+                      "src": "446:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 938,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "446:34:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 939,
+                  "nodeType": "ExpressionStatement",
+                  "src": "446:34:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 943,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 940,
+                      "name": "icoState",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 987,
+                      "src": "491:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 941,
+                        "name": "State",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 983,
+                        "src": "502:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                          "typeString": "type(enum ICOState.State)"
+                        }
+                      },
+                      "id": 942,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Paused",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "502:12:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "src": "491:23:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_State_$983",
+                      "typeString": "enum ICOState.State"
+                    }
+                  },
+                  "id": 944,
+                  "nodeType": "ExpressionStatement",
+                  "src": "491:23:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 945,
+                      "name": "PauseIco",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 900,
+                      "src": "530:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 946,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "530:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 947,
+                  "nodeType": "EmitStatement",
+                  "src": "525:15:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 949,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 931,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 930,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1049,
+                  "src": "425:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "425:9:5"
+              }
+            ],
+            "name": "pauseIco",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 929,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "413:2:5"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 932,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "435:0:5"
+            },
+            "scope": 976,
+            "src": "396:152:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 974,
+              "nodeType": "Block",
+              "src": "596:171:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 963,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 958,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 955,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "615:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 956,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "627:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 957,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Running",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "627:13:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "615:25:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "||",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 962,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 959,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "644:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 960,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "656:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 961,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Paused",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "656:12:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "644:24:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "615:53:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 954,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1261,
+                      "src": "607:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 964,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "607:62:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 965,
+                  "nodeType": "ExpressionStatement",
+                  "src": "607:62:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 969,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 966,
+                      "name": "icoState",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 987,
+                      "src": "707:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 967,
+                        "name": "State",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 983,
+                        "src": "718:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                          "typeString": "type(enum ICOState.State)"
+                        }
+                      },
+                      "id": 968,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Finished",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "718:14:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "src": "707:25:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_State_$983",
+                      "typeString": "enum ICOState.State"
+                    }
+                  },
+                  "id": 970,
+                  "nodeType": "ExpressionStatement",
+                  "src": "707:25:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 971,
+                      "name": "FinishIco",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 902,
+                      "src": "748:9:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 972,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "748:11:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 973,
+                  "nodeType": "EmitStatement",
+                  "src": "743:16:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 975,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 952,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 951,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1049,
+                  "src": "586:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "586:9:5"
+              }
+            ],
+            "name": "finishIco",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 950,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "574:2:5"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 953,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "596:0:5"
+            },
+            "scope": 976,
+            "src": "556:211:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 977,
+        "src": "83:689:5"
+      }
+    ],
+    "src": "0:774:5"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/ICOManagement.sol",
+    "exportedSymbols": {
+      "ICOManagement": [
+        976
+      ]
+    },
+    "id": 977,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 890,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 891,
+        "nodeType": "ImportDirective",
+        "scope": 977,
+        "sourceUnit": 1142,
+        "src": "28:23:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Users/DXenu/Desktop/box/demo_contract/contracts/templates/ICOState.sol",
+        "file": "./ICOState.sol",
+        "id": 892,
+        "nodeType": "ImportDirective",
+        "scope": 977,
+        "sourceUnit": 989,
+        "src": "53:24:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 893,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1141,
+              "src": "109:7:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$1141",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 894,
+            "nodeType": "InheritanceSpecifier",
+            "src": "109:7:5"
+          },
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 895,
+              "name": "ICOState",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 988,
+              "src": "118:8:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ICOState_$988",
+                "typeString": "contract ICOState"
+              }
+            },
+            "id": 896,
+            "nodeType": "InheritanceSpecifier",
+            "src": "118:8:5"
+          }
+        ],
+        "contractDependencies": [
+          988,
+          1141
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 976,
+        "linearizedBaseContracts": [
+          976,
+          988,
+          1141
+        ],
+        "name": "ICOManagement",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 898,
+            "name": "RunIco",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 897,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "148:2:5"
+            },
+            "src": "136:15:5"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 900,
+            "name": "PauseIco",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 899,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "171:2:5"
+            },
+            "src": "157:17:5"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 902,
+            "name": "FinishIco",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 901,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "195:2:5"
+            },
+            "src": "180:18:5"
+          },
+          {
+            "body": {
+              "id": 927,
+              "nodeType": "Block",
+              "src": "245:143:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 916,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 911,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 908,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "264:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 909,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "276:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 910,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Created",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "276:13:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "264:25:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "||",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 915,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 912,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "293:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 913,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "305:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 914,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Paused",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "305:12:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "293:24:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "264:53:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 907,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1261,
+                      "src": "256:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 917,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "256:62:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 918,
+                  "nodeType": "ExpressionStatement",
+                  "src": "256:62:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 922,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 919,
+                      "name": "icoState",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 987,
+                      "src": "329:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 920,
+                        "name": "State",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 983,
+                        "src": "340:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                          "typeString": "type(enum ICOState.State)"
+                        }
+                      },
+                      "id": 921,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Running",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "340:13:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "src": "329:24:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_State_$983",
+                      "typeString": "enum ICOState.State"
+                    }
+                  },
+                  "id": 923,
+                  "nodeType": "ExpressionStatement",
+                  "src": "329:24:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 924,
+                      "name": "FinishIco",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 902,
+                      "src": "369:9:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 925,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "369:11:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 926,
+                  "nodeType": "EmitStatement",
+                  "src": "364:16:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 928,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 905,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 904,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1049,
+                  "src": "235:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "235:9:5"
+              }
+            ],
+            "name": "startIco",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 903,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "223:2:5"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 906,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "245:0:5"
+            },
+            "scope": 976,
+            "src": "206:182:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 948,
+              "nodeType": "Block",
+              "src": "435:113:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_enum$_State_$983",
+                          "typeString": "enum ICOState.State"
+                        },
+                        "id": 937,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 934,
+                          "name": "icoState",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 987,
+                          "src": "454:8:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 935,
+                            "name": "State",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 983,
+                            "src": "466:5:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                              "typeString": "type(enum ICOState.State)"
+                            }
+                          },
+                          "id": 936,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "Running",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "466:13:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          }
+                        },
+                        "src": "454:25:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 933,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1261,
+                      "src": "446:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 938,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "446:34:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 939,
+                  "nodeType": "ExpressionStatement",
+                  "src": "446:34:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 943,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 940,
+                      "name": "icoState",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 987,
+                      "src": "491:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 941,
+                        "name": "State",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 983,
+                        "src": "502:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                          "typeString": "type(enum ICOState.State)"
+                        }
+                      },
+                      "id": 942,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Paused",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "502:12:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "src": "491:23:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_State_$983",
+                      "typeString": "enum ICOState.State"
+                    }
+                  },
+                  "id": 944,
+                  "nodeType": "ExpressionStatement",
+                  "src": "491:23:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 945,
+                      "name": "PauseIco",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 900,
+                      "src": "530:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 946,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "530:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 947,
+                  "nodeType": "EmitStatement",
+                  "src": "525:15:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 949,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 931,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 930,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1049,
+                  "src": "425:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "425:9:5"
+              }
+            ],
+            "name": "pauseIco",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 929,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "413:2:5"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 932,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "435:0:5"
+            },
+            "scope": 976,
+            "src": "396:152:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 974,
+              "nodeType": "Block",
+              "src": "596:171:5",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 963,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 958,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 955,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "615:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 956,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "627:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 957,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Running",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "627:13:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "615:25:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "||",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_State_$983",
+                            "typeString": "enum ICOState.State"
+                          },
+                          "id": 962,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 959,
+                            "name": "icoState",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 987,
+                            "src": "644:8:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 960,
+                              "name": "State",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 983,
+                              "src": "656:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                                "typeString": "type(enum ICOState.State)"
+                              }
+                            },
+                            "id": 961,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "memberName": "Paused",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "656:12:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_enum$_State_$983",
+                              "typeString": "enum ICOState.State"
+                            }
+                          },
+                          "src": "644:24:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "615:53:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 954,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1261,
+                      "src": "607:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 964,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "607:62:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 965,
+                  "nodeType": "ExpressionStatement",
+                  "src": "607:62:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 969,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 966,
+                      "name": "icoState",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 987,
+                      "src": "707:8:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 967,
+                        "name": "State",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 983,
+                        "src": "718:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_State_$983_$",
+                          "typeString": "type(enum ICOState.State)"
+                        }
+                      },
+                      "id": 968,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "Finished",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "718:14:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_State_$983",
+                        "typeString": "enum ICOState.State"
+                      }
+                    },
+                    "src": "707:25:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_State_$983",
+                      "typeString": "enum ICOState.State"
+                    }
+                  },
+                  "id": 970,
+                  "nodeType": "ExpressionStatement",
+                  "src": "707:25:5"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 971,
+                      "name": "FinishIco",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 902,
+                      "src": "748:9:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 972,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "748:11:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 973,
+                  "nodeType": "EmitStatement",
+                  "src": "743:16:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 975,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 952,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 951,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1049,
+                  "src": "586:9:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "586:9:5"
+              }
+            ],
+            "name": "finishIco",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 950,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "574:2:5"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 953,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "596:0:5"
+            },
+            "scope": 976,
+            "src": "556:211:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 977,
+        "src": "83:689:5"
+      }
+    ],
+    "src": "0:774:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-21T04:13:53.913Z"
+}
