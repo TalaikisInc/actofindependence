@@ -14,7 +14,7 @@ class Header extends Component {
   render () {
     return (
       <Box align="center">
-        <Heading align="center">Act of Independence of Lithuania</Heading>
+        <Heading align="center">Act of Reinstating Independence of Lithuania</Heading>
         <Label align="center">on Ethereum Blockchain &amp; Interplanetary File System</Label>
         <Tabs>
           <Tab title="Home">
