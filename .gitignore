@@ -33,6 +33,4 @@ static/admin
 .next
 stats.txt
 .env
-build/
-app/build/
 app/node_modules/
