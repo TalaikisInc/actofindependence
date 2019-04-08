@@ -8,7 +8,7 @@
 
 ## dApp live
 
-[Visit](https://act.identiform.com)
+[Visit](https://act.talaikis.com)
 
 ## Addresses
 

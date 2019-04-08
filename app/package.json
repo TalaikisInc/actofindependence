@@ -47,7 +47,6 @@
   "devDependencies": {
     "babel-plugin-import": "^1.7.0",
     "css-loader": "^0.28.11",
-    "cypress": "^2.1.0",
     "jest": "^22.4.3",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
