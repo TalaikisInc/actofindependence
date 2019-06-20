@@ -31,7 +31,7 @@
     "react-validation": "^3.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "truffle": "^4.1.5",
+    "truffle": "^5.0.24",
     "truffle-contract": "^3.0.4",
     "validator": "^9.4.1",
     "web3": "^1.0.0-beta.34",
