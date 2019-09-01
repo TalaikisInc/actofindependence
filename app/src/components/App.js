@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
+import ReactGA from 'react-ga'
 
 import '../../node_modules/grommet-css'
 import App from 'grommet/components/App'
@@ -22,6 +23,14 @@ class _App extends Component {
   }
 
   componentDidMount() {
+    if (process.env.NODE_ENV === 'production') {
+      if (!window.GA_INITIALIZED) {
+        this.initGA()
+        window.GA_INITIALIZED = true
+      }
+      this.logPageView()
+    }
+
     this.props.initWeb3()
 
     setInterval(() => {
@@ -63,6 +72,17 @@ class _App extends Component {
           })
         })
     }
+  }
+
+  initGA () {
+    ReactGA.initialize(process.env.GA_TRACKING_ID)
+    // console.log('Initialized')
+  }
+
+  logPageView () {
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname)
+    // console.log(`Logged: ${window.location.pathname}`)
   }
 
   render() {
