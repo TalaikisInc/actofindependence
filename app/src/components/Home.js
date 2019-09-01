@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import web3utils from 'web3-utils'
 
 import Toast from 'grommet/components/Toast'
 import Box from 'grommet/components/Box'
 import Label from 'grommet/components/Label'
 import Image from 'grommet/components/Image'
+import web3 from 'web3'
 
 class Home extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class Home extends Component {
 
   getAct() {
     this.props.Token.deployed().then(async (token) => {
-      if(web3utils.isAddress(this.props.account)) {
+      if(web3.utils.isAddress(this.props.account)) {
           token.getAct({ from: this.props.account })
             .then(async (res) => {
               this.props.ipfs.catJSON(res, async (err, data) => {
