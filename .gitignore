@@ -27,3 +27,6 @@ static/admin
 .next
 stats.txt
 .env
+
+.now
+app/

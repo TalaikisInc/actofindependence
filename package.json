@@ -48,6 +48,7 @@
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^3.0.1",
     "ganache-cli": "^6.1.0",
+    "jest": "^25.1.0",
     "solidity-coverage": "^0.4.15",
     "solium": "^1.1.6",
     "truffle-hdwallet-provider-privkey": "^0.2.0"

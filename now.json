@@ -1,8 +1,0 @@
-{
-    "alias": ["act.talaikis.com"],
-    "build": {
-        "env": {
-            "APP_NAME": "@act-name"
-        }
-    }
-}

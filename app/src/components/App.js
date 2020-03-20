@@ -75,7 +75,7 @@ class _App extends Component {
   }
 
   initGA () {
-    ReactGA.initialize(process.env.GA_TRACKING_ID)
+    ReactGA.initialize('UA-137539256-1')
     // console.log('Initialized')
   }
 
