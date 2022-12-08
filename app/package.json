@@ -14,7 +14,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "cross-env": "^7.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "grommet": "^2.11.2",
     "grommet-css": "^1.6.0",
     "ipfs-mini": "^1.1.5",
